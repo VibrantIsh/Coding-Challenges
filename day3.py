@@ -1,3 +1,4 @@
+# https://www.codechef.com/practice/course/strings-cpp/PCPPST01/problems/BLOBBYVOLLEY
 class Game:
     def __init__(self, turns, r):
         self.t = turns
