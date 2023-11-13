@@ -1,5 +1,3 @@
-# https://www.codechef.com/practice/course/arrays-cpp/PCPPAR01/problems/CS2023_STK
-
 class StreakTracker:
     def __init__(self, om_values, addy_values):
         self.om_values = om_values
@@ -11,20 +9,14 @@ class StreakTracker:
         om_chain = 0
         addy_chain = 0
 
-        for day in range(min(len(self.om_values), len(self.addy_values))):
+        for day in range(len(self.om_values)):
             if self.om_values[day] > 0:
                 om_chain += 1
                 self.max_om_chain = max(self.max_om_chain, om_chain)
             else:
                 om_chain = 0
 
-            if self.addy_values[day] > 0:
-                addy_chain += 1
-                self.max_addy_chain = max(self.max_addy_chain, addy_chain)
-            else:
-                addy_chain = 0
-
-        for day in range(len(self.om_values), len(self.addy_values)):
+        for day in range(len(self.addy_values)):
             if self.addy_values[day] > 0:
                 addy_chain += 1
                 self.max_addy_chain = max(self.max_addy_chain, addy_chain)
@@ -32,9 +24,12 @@ class StreakTracker:
                 addy_chain = 0
 
     def determine_outcome(self):
-        if self.max_om_chain > self.max_addy_chain:
+        total_om_streak = sum(value for value in self.om_values if value > 0)
+        total_addy_streak = sum(value for value in self.addy_values if value > 0)
+
+        if total_om_streak > total_addy_streak:
             return "OM"
-        elif self.max_addy_chain > self.max_om_chain:
+        elif total_addy_streak > total_om_streak:
             return "ADDY"
         else:
             return "DRAW"
