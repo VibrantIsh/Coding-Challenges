@@ -1,11 +1,11 @@
 # https://www.codechef.com/practice/course/interview-dsa/DSAPREP_01/problems/LUCNUM
 for _ in range(int(input())):
-    n = int(input())
-    if n % 2 == 1:
+    x = int(input())
+    if x % 2 == 1:
         print(1)
     else:
-        count = 0
-        while n > 0 and n % 2 == 0:
-            count += 1
-            n //= 2 
-        print(1 if count % 2 == 0 else 0)
+        c = 0
+        while x > 0 and x % 2 == 0:
+            c += 1
+            x //= 2 
+        print(1 if c % 2 == 0 else 0)
