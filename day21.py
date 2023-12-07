@@ -1,3 +1,4 @@
+# https://www.codechef.com/START93D/problems/SEVENRINGS
 def valid_phone(num):
     s = str(num)
     return len(s) == 5 and s[0] != '0'
