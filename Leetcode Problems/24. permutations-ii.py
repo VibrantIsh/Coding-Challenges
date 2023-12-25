@@ -7,17 +7,18 @@ class Solution:
 
 # OR
 
-
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
-        c = []
-        
-        def y(nums, temp):
-            if len(nums) == 0:
-                c.append(temp)
-                return
-            for i in range(len(nums)):
-                y(nums[:i] + nums[i+1:], temp + [nums[i]])
-                
-        y(nums, [])
-        return set(tuple(ele) for ele in c)
+        x = []
+
+        def ss(p, remaining):
+            if len(remaining) == 0:
+                if p not in x:
+                    x.append(p[:])
+                return 
+            ch = remaining[0]
+            for i in range(len(p) + 1):
+                ss(p[0:i] + [ch] + p[i:], remaining[1:])
+        nums.sort()
+        ss([], nums)
+        return x
